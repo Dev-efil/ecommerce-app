@@ -1,42 +1,20 @@
 const express = require('express');
 const server = express();
-const dotenv = require('dotenv').config();
-const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 const cors = require('cors');
+require('dotenv').config();
 const connection = require('./config/dbConfig');
+// const auth = require('./routes/api-v1/auth/login');
+// const authRegister = require('./routes/api-v1/auth/register');
+const paymentCheckout = require('./routes/api-v1/payment/checkout');
 
 connection();
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 server.use(cors());
 
-server.get('/test', (req, res) => {
-    return res.status(200).json({ message: "Successfully" });
-});
-server.post('/payment', async (req, res) => {
-    const {id , amount} = req.body;
-    try {
-        const payment = await stripe.paymentIntents.create({
-            amount: amount,
-            currency: "CAD",
-            description: "item company",
-            payment_method: id,
-            confirm: true
-        })
-        console.log('payment', payment);
-        res.json({
-            message : 'Payment Successful',
-            success: true
-        });
-    } catch (error) {
-        console.log('payment :', error);
-        res.json({
-            message : 'Payment failed',
-            success: false
-        });
-    }
-});
-
+// server.use('/api/v1/auth', auth);
+// server.use('/api/v1/auth', authRegister);
+server.use('/api/v1/payment', paymentCheckout);
 
 const PORT = process.env.PORT || 3500;
 

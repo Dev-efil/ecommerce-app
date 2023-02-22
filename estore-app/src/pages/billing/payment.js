@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import StripeComponent from '../../components/payment/stripe';
+import StripeComponent from '../../components/billing/stripe';
 
 function Payment() {
     const [isItem, setIsItem] = useState(false);

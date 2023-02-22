@@ -4,7 +4,9 @@ import MainLayout from './pages/layouts/mainLayout';
 import Home from './pages/home/home';
 import PageNotFound from './pages/pageNotFound';
 import Cart from './pages/cart/cart';
-import Payment from './pages/payment/payment';
+import Payment from './pages/billing/payment';
+import Success from './pages/billing/success';
+import ProductInner from './pages/product/productInner';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route index element={<Home />} />
         <Route path="cart" element={<Cart />} />
         <Route path="payment" element={<Payment />} />
+        <Route path="product-inner" element={<ProductInner />} />
+        <Route path="success" element={<Success />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
