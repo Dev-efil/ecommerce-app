@@ -6,9 +6,9 @@ function MainLayout() {
     return (
         <>
             <NavbarComponent />
-            <div className="container">
+            <main>
                 <Outlet />
-            </div>
+            </main>
             <FooterComponent />
         </>
     )

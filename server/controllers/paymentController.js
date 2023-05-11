@@ -1,9 +1,9 @@
-const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
-
+import Stripe from 'stripe';
+const stripe = new Stripe(process.env.STRIPE_PRIVATE_KEY);
 // @desc    create checkout
 // @route   POST /api/v1/payment/checkout
 // @access  public
-const checkout = async (req, res) => {
+export const checkout = async (req, res) => {
     const session = await stripe.checkout.sessions.create({
         line_items: [
             {
@@ -22,8 +22,4 @@ const checkout = async (req, res) => {
         cancel_url: 'https://example.com/cart',
     });
     res.send({ url: session.url });
-}
-
-module.exports = {
-    checkout
 }

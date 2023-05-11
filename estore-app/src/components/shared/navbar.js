@@ -22,6 +22,15 @@ function Navbar() {
                         <li className="nav-item">
                             <Link className="nav-link" to="product-inner" aria-disabled="true">Product Inner</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="wishlist" aria-disabled="true">Wish List</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="register" aria-disabled="true">Register</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="login" aria-disabled="true">Login</Link>
+                        </li>
                     </ul>
                     <div className="d-flex">
                         <div className="nav-icon">
