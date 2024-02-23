@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
-        <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
-            <p className="col-md-4 mb-0 text-muted">© 2022 Company, Inc</p>
+        <footer className="flex flex-wrap justify-content-between align-items-center py-3 border-top">
+            <p className="mb-0">© 2022 Company, Inc</p>
 
-            <Link to="/" className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <Link to="/" className="flex items-center justify-center mb-3 mb-md-0 me-md-auto no-underline">
                 
             </Link>
 
