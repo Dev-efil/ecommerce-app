@@ -1,7 +1,7 @@
 
 import mongoose from 'mongoose';
 
-const wishListSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
     name: { type: String, required: true },
     description: { type: String, required: true },
     price: { type: Number, required: true },
@@ -13,4 +13,4 @@ const wishListSchema = new mongoose.Schema({
     countInStock: { type: Number, required: true, default: 0 }
 }, { timestamps: true });
 
-export default mongoose.model('wishList', wishListSchema);
+export default mongoose.model('products', productSchema);
