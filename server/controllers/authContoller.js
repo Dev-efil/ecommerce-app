@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import User from '../model/userModel.js'
 
-export const handleRegister = async (req, res) => {
+export const registerUserHandle = async (req, res) => {
     const { name, email, password } = req.body;
 
     try {
@@ -24,7 +24,7 @@ export const handleRegister = async (req, res) => {
     }
 }
 
-export const handleLogin = async (req, res) => {
+export const loginUserHandle = async (req, res) => {
     const { email, password } = req.body;
     try {
         const existingUser = await User.findOne({ email: email });
@@ -45,7 +45,13 @@ export const handleLogin = async (req, res) => {
     }
 }
 
-export const handleLogout = async (req, res) => {
+export const updateUserHandle = async (req, res) => {   
+}
+
+export const deleteUserHandle = async (req, res) => {   
+}
+
+export const logoutUserHandle = async (req, res) => {
     const cookie = req.headers.cookie;
     let prevSplitToken = cookie.split('; ').find(row => row.startsWith('prex')).split('=')[1];
     if (!prevSplitToken) {
