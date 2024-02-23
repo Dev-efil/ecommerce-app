@@ -5,4 +5,4 @@ const wishListSchema = new mongoose.Schema({
     userId: { type: String, ref: 'User', required: true}
 }, { timestamps: true });
 
-export default mongoose.model('wishList', wishListSchema);
+export default mongoose.model('wishLists', wishListSchema);
