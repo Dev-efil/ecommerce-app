@@ -6,9 +6,10 @@ import cookieParser from 'cookie-parser';
 import connection from './config/dbConfig.js';
 
 import auth from './routes/api-v1/auth/auth.js';
-import wishList from './routes/api-v1/wishList/wishList.js';
-// const authRegister = require('./routes/api-v1/auth/register');
-import paymentCheckout from './routes/api-v1/payment/checkout.js';
+import products from './routes/api-v1/product/product.js';
+import orders from './routes/api-v1/order/order.js';
+import wishLists from './routes/api-v1/wishList/wishList.js';
+import payments from './routes/api-v1/payment/checkout.js';
 
 // Load environment variables
 dotenv.config();
@@ -20,9 +21,10 @@ server.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 server.use(cookieParser());
 
 server.use('/api/v1/auth', auth);
-server.use('/api/v1', wishList);
-// server.use('/api/v1/auth', authRegister);
-server.use('/api/v1/payment', paymentCheckout);
+server.use('/api/v1/products', products);
+server.use('/api/v1/orders', orders);
+server.use('/api/v1/wishLists', wishLists);
+server.use('/api/v1/payments', payments);
 
 const PORT = process.env.PORT || 3500;
 
