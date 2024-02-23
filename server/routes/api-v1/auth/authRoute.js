@@ -1,8 +1,8 @@
 import express from 'express';
 const router = express.Router();
 import { registerUserHandle, updateUserHandle, deleteUserHandle, loginUserHandle, logoutUserHandle } from '../../../controllers/authContoller.js';
-import { verifyToken } from '../../../middleware/verifyToken.js';
-import { refreshToken } from '../../../middleware/refreshToken.js';
+import { verifyToken } from '../../../middlewares/verifyToken.js';
+import { refreshToken } from '../../../middlewares/refreshToken.js';
 
 router.post('/register', registerUserHandle);
 router.post('/login', loginUserHandle);
