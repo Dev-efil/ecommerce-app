@@ -1,4 +1,5 @@
-import WishListComponent from '../../components/wishList/wishList.js'
+import React from 'react';
+import WishListComponent from '../../components/wishList/wishList'
 
 function WishList() {
     return (

@@ -1,13 +1,13 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import router from '../../api/base';
 
 const _registerURL = 'uth/register';
 
 function Register() {
-    const [name, setName] = useState();
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    const handleRegister = async (e) => {
+    const [name, setName] = useState<string>();
+    const [email, setEmail] = useState<string>();
+    const [password, setPassword] = useState<string>();
+    const handleRegister = async (e: React.FormEvent) => {
         e.preventDefault();
         const registerData = { name, email, password }
         console.log(registerData);

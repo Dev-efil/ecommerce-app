@@ -1,3 +1,4 @@
+import React from 'react';
 import ProductInnerComponent from '../../components/product/productInner';
 
 function ProductInner() {

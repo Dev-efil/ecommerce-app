@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import router from '../../api/base.js';
+import React, { useEffect, useState } from 'react';
+import router from '../../api/base';
 router.defaults.withCredentials = true;
 
 const _wishListURL = 'wishlist';
