@@ -1,7 +1,7 @@
-import express from 'express';
-const router = express.Router();
-import { checkout } from '../../../controllers/paymentController.js';
+// import express from 'express';
+// const router = express.Router();
+// import { checkout } from '../../../controllers/paymentController.js';
 
-router.post('/checkout', checkout);
+// router.post('/checkout', checkout);
 
-export default router;
+// export default router;
