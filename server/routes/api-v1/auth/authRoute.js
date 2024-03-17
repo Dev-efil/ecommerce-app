@@ -1,13 +1,14 @@
 import express from 'express';
 const router = express.Router();
-import { registerUserHandle, updateUserHandle, deleteUserHandle, loginUserHandle, logoutUserHandle } from '../../../controllers/authContoller.js';
-import { verifyToken } from '../../../middlewares/verifyToken.js';
-import { refreshToken } from '../../../middlewares/refreshToken.js';
+import { registerUserHandle, getUserHandle, updateUserHandle, deleteUserHandle, loginUserHandle, logoutUserHandle } from '../../../controllers/authController.js';
+import { verifyToken } from '../../../middlewares/verifyTokenMiddleware.js';
+import { refreshToken } from '../../../middlewares/refreshTokenMiddleware.js';
 
 router.post('/register', registerUserHandle);
 router.post('/login', loginUserHandle);
-router.put('users/:id', updateUserHandle);
-router.delete('users/:id', deleteUserHandle);
+router.get('/users/:id', getUserHandle);
+router.put('/users/:id', updateUserHandle);
+router.delete('/users/:id', deleteUserHandle);
 router.post('/logout', verifyToken, logoutUserHandle);
 router.get('/refresh', refreshToken, verifyToken, (req, res) => {
     return res.sendStatus(200);
