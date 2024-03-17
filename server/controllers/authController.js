@@ -45,10 +45,51 @@ export const loginUserHandle = async (req, res) => {
     }
 }
 
-export const updateUserHandle = async (req, res) => {   
+export const getUserHandle = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const existingUser = await User.findById(id);
+        if (!existingUser) {
+            return res.status(400).json({ message: 'No user found.' });
+        }
+        else {
+            return res.status(200).json(existingUser);
+        }
+    } catch (error) {
+        return res.status(500).send(error);
+    }
 }
 
-export const deleteUserHandle = async (req, res) => {   
+export const updateUserHandle = async (req, res) => {
+    const { id } = req.params;
+    const { email, name } = req.body;
+    try {
+        const existingUser = await User.updateOne({ id: id }, { $set: { name: name, email: email } });
+        if (!existingUser) {
+            return res.status(400).json({ message: 'Update is failed.' });
+        }
+        else {
+            return res.status(200).json({ message: 'Update successfully.' });
+        }
+    } catch (error) {
+        return res.status(500).send(error);
+    }
+}
+
+export const deleteUserHandle = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const existingUser = await User.deleteOne({ _id: id });
+        console.log('existingUser', existingUser);
+        if (!existingUser) {
+            return res.status(400).json({ message: 'User not found.' });
+        }
+        else {
+            return res.status(200).json({ message: 'User successfully deleted.' });
+        }
+    } catch (error) {
+        return res.status(500).send(error);
+    }
 }
 
 export const logoutUserHandle = async (req, res) => {
