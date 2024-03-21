@@ -1,8 +1,20 @@
 import mongoose from 'mongoose';
 
+/* wish list */
 const wishListSchema = new mongoose.Schema({
-    productId: { type: String, ref: 'Product', required: true },
-    userId: { type: String, ref: 'User', required: true}
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'users' },
 }, { timestamps: true });
 
-export default mongoose.model('wishLists', wishListSchema);
+const wishList = mongoose.model('wishLists', wishListSchema);
+
+
+/* wish list details */
+const wishListDetailSchema = new mongoose.Schema({
+    wishlistId: { type: mongoose.Schema.Types.ObjectId, ref: 'wishLists' },
+    productId: { type: mongoose.Schema.Types.ObjectId, ref: 'products' },
+}, { timestamps: true });
+
+const wishListDetail = mongoose.model('wishListDetails', wishListDetailSchema);
+
+
+export { wishList, wishListDetail };
