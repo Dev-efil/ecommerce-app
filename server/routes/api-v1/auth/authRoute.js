@@ -3,9 +3,10 @@ const router = express.Router();
 import { registerUserHandle, getUserHandle, updateUserHandle, deleteUserHandle, loginUserHandle, logoutUserHandle } from '../../../controllers/authController.js';
 import { verifyToken } from '../../../middlewares/verifyTokenMiddleware.js';
 import { refreshToken } from '../../../middlewares/refreshTokenMiddleware.js';
+import { rateLimiter, apiThrottler} from '../../../middlewares/rateLimitingMiddleware.js';
 
-router.post('/register', registerUserHandle);
-router.post('/login', loginUserHandle);
+router.post('/register', rateLimiter, registerUserHandle);
+router.post('/login', rateLimiter, apiThrottler, loginUserHandle);
 router.get('/users/:id', getUserHandle);
 router.put('/users/:id', updateUserHandle);
 router.delete('/users/:id', deleteUserHandle);
